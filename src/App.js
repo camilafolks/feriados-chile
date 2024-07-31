@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// APP será el Provider que proveerá la información para los componentes hijos
+
+import React from 'react';
+import { FeriadosProvider } from './FeriadosContext';
+// import ListaFeriados from './components/ListaFeriados';
+import GeneradorFeriados from './components/GeneradorFeriados'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FeriadosProvider>
+      <div className="App">
+        <h1>Feriados en Chile</h1>
+        {/* <ListaFeriados />    Esto es el componente que CONSUME el contexto, en este caso el que mostrará la lista de feriados */}
+        <GeneradorFeriados />   {/* Esto es el componente que CONSUME el contexto, en este caso el generador aleatorio de feriados */}
+      </div>
+    </FeriadosProvider>
   );
 }
 
 export default App;
+
